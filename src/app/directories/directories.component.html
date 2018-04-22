@@ -1,0 +1,38 @@
+<div class="col-md-9">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <table>
+        <tr>
+          <td class="col-md-2"><label for="path" class="control-label">Новая директория</label></td>
+          <td class="col-md-7"><input  [(ngModel)]="directory.path" placeholder="/opt/tomcat/temp" name="path" class="form-control" id="path"></td>
+          <td><button class="btn btn-success" (click)="createDirectory()">Добавить в список</button></td>
+        </tr>
+      </table>
+    </div>
+  </form>
+  <h2>Список директорий и файлов</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Дата</th>
+      <th>Базовая директория</th>
+      <th>Директорий</th>
+      <th>Файлов</th>
+      <th>Сумарный размер файлов</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let directory of directories">
+      <td class="hidden">{{directory.id}}</td>
+      <td>{{directory.date }}</td>
+      <td>{{directory.path}}</td>
+      <td>{{directory.dirs}}</td>
+      <td>{{directory.files}}</td>
+      <td>{{directory.size}}</td>
+      <td> <button mat-raised-button (click)="openModal(directory)">Файлы</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

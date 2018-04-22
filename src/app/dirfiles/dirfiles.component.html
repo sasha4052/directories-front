@@ -1,0 +1,19 @@
+<h2>{{data.dir}}</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Файл</th>
+    <th>Размер</th>
+  </tr>
+  <tbody>
+  <tr *ngFor="let file of data.files">
+    <td>{{file.split(" ")[0] }}</td>
+    <td>{{file.split(" ")[1] }}</td>
+  </tr>
+  </tbody>
+</table>
+<div>
+  <button mat-raised-button (click)="close()">Закрыть</button>
+</div>
+
+
